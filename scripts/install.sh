@@ -27,8 +27,9 @@ fix_service() {
 }
 
 fix_packages() {
+  export DEBIAN_FRONTEND=noninteractive
   if ! sudo apt-get check 2>/dev/null; then
-    sudo apt --fix-broken install || (sudo apt-get update && sudo apt --fix-broken install)
+    sudo apt -y --fix-broken install || (sudo apt-get update && sudo apt --fix-broken install)
   fi
 }
 

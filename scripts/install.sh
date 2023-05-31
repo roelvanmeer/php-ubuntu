@@ -62,6 +62,7 @@ check_reload() {
   fi
 }
 
+set -x
 . /etc/os-release
 version=$1
 builds=${2:-release}
